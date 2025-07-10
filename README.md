@@ -2,7 +2,7 @@
 
 ## Tech Stack
 
-__Server:__ Node, Express, MongoDB, Mongoose, JWT
+__Server:__ NodeJS, ExpressJS, MongoDB, Mongoose, JWT
 
 # API FEATURES
 - Authentication & Authorization
