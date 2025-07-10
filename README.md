@@ -73,7 +73,7 @@ POST api/v1/users/login
 
 # User
 
-## User pofile
+## User profile
 
 ```http
 GET api/v1/users/profile/
@@ -96,7 +96,7 @@ GET api/v1/users/
 
 ## Get profile views
 ```http
-GET api/v1/users//profile-viewers/:id
+GET api/v1/users/profile-viewers/:id
 ```
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
@@ -104,7 +104,7 @@ GET api/v1/users//profile-viewers/:id
 | `email` | `string` | Your email        | no        |
 |`password`| `string`| Your password     | no        |
 
-## Update users details
+## Update user details
 ```http
 PUT api/v1/users/update-user/:id
 ```
@@ -158,7 +158,7 @@ PUT api/v1/users/unfollowing/:id
 
 ## User blocking
 ```http
-PUT api/v1/users//block/:id
+PUT api/v1/users/block/:id
 ```
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
