@@ -150,7 +150,7 @@ PUT api/v1/users/profile-photo-upload
 ```
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
-|`authentication` | `string` | Your token | no       |
+|`authentication` | `string` | Your token | yes      |
 | `email` | `string` | Your email        | no        |
 |`password`| `string`| Your password     | no        |
 |`image` | `file` | Your profile photo   | yes       |
@@ -232,6 +232,9 @@ POST api/v1/posts/create-post
 |`category` | `_id` | Post Category       | yes       |
 
 ## Fetch all posts
+```http
+GET api/v1/posts/all-posts
+```
 | Parameter | Type | Description          | Required  |
 | :---------| :----| :----------------    | :---------|
 |`authentication` | `string` | Your token | yes       |
