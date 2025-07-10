@@ -60,7 +60,7 @@ __Server:__ Node, Express, MongoDB, Mongoose, JWT
 - [Categories](#Categories)
    - [Create a category](#Create-a-category)
    - [Fetch all categories](#Fetch-all-categories)
-   - [Fetch a category](#Fetch-a-cayegory)
+   - [Fetch a category](#Fetch-a-category)
    - [Delete a category](#Delete-a-category)
    - [Update a category](#Update-a-category)
   
@@ -313,7 +313,7 @@ DELETE api/v1/comments/delete-comment/:id
 
 ## Update a comment
 ```http
-PUT api/v1/comments/updatee-comment/:id
+PUT api/v1/comments/update-comment/:id
 ```
 | Parameter | Type | Description          | Required  |
 | :---------| :----| :----------------    | :---------|
