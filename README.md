@@ -358,7 +358,7 @@ DELETE api/v1/categories/delete-category/:id
 
 ## Update a category
 ```http
-PUT api/v1/categories/create-category
+PUT api/v1/categories/update-category/:id
 ```
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
