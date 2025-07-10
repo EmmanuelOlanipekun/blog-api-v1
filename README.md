@@ -51,6 +51,18 @@ __Server:__ Node, Express, MongoDB, Mongoose, JWT
    - [Post views](#Post-views)
    - [Delete a post](#Delete-a-post)
    - [Update a post](#Update-a-post)
+ 
+  - [Comments](#Comments)
+   - [Create a comment](#Create-a-comment)
+   - [Delete a comment](#Delete-a-comment)
+   - [Update a comment](#Update-a-comment)
+ 
+   [Categories](#Categories)
+   - [Create a category](#Create-a-category)
+   - [Fetch all categories](#Fetch-all-categories)
+   - [Fetch a category](#Fetch-a-cayegory)
+   - [Delete a category](#Delete-a-category)
+   - [Update a category](#Update-a-category)
   
    
 
@@ -277,6 +289,83 @@ PUT api/v1/posts/update-post/:id
 | :---------| :----| :----------------    | :---------|
 |`authentication` | `string` | Your token | yes       |
 | `id` | `string` | Post id               | yes       |
+
+# Comments
+
+## Create a comment
+```http
+POST api/v1/comments/create-comment/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+|`description` | `string` | Comment description | yes |
+| `id` | `string` | Post id               | yes       |
+
+## Delete a comment
+```http
+DELETE api/v1/comments/delete-comment/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+| `id` | `string` | Comment id               | yes    |
+
+## Update a comment
+```http
+PUT api/v1/comments/updatee-comment/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+|`description` | `string` | Comment description | yes |
+| `id` | `string` | Comment id               | yes       |
+
+# Categories
+
+## Create a category
+```http
+POST api/v1/categories/create-category
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `title`    | `string` | Category title | yes       |
+
+## Fetch all categories
+```http
+GET api/v1/categories/fetch-categories
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+
+## Fetch a category
+```http
+GET api/v1/categories/fetch-category/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+| `id`    | `string` | Category id       | yes       |
+
+## Delete a category
+```http
+DELETE api/v1/categories/delete-category/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token  | yes      |
+| `id`    | `string` | Category id       | yes       |
+
+## Update a category
+```http
+PUT api/v1/categories/create-category
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `title`    | `string` | Category title | yes       |
+| `id`    | `string` | Category id       | yes       |
+
 
 
 
