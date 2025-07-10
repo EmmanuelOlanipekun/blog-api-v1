@@ -26,19 +26,21 @@ __Server:__ Node, Express, MongoDB, Mongoose, JWT
 # ENDPOINTS
 - [API Authentication](#API-Authentication)
    - [Register a new API client](#Register-a-new-API-client)
-   - [Login](https://www.github.com/octokatherine)
-- [Users](https://www.github.com/octokatherine)
-   - [Get my profile](https://www.github.com/octokatherine)
-   - [Get all users](https://www.github.com/octokatherine)
-   - [Get profile views](https://www.github.com/octokatherine)
-   - [Update user detail](https://www.github.com/octokatherine)
-   - [Update user password](https://www.github.com/octokatherine)
-   - [Update profile picture](https://www.github.com/octokatherine)
-   - [User following](https://www.github.com/octokatherine)
-   - [User unfollowing](https://www.github.com/octokatherine)
-   - [User blocking](https://www.github.com/octokatherine)
-   - [User unblocking](https://www.github.com/octokatherine)
-   - [User delete account](https://www.github.com/octokatherine)
+   - [Login](#User-Login)
+- [Users](#User)
+   - [Get my profile](#User-Profile)
+   - [Get all users](#Get-all-users)
+   - [Get profile views](#Get-profile-views)
+   - [Update user details](#Update-user-details)
+   - [Update user password](#Update-user-password)
+   - [Update profile picture](#Update-user-profile-picture)
+   - [User following](#User-following)
+   - [User unfollowing](#User-unfollowing)
+   - [User blocking](#User-blocking)
+   - [User unblocking](#User-unblocking)
+   - [User delete account](#User-delete-account)
+   - [Admin block account](#Admin-block-account)
+   - [Admin unblock account](#Admin-unblock-account)
 
 
 # API Authentication
@@ -56,7 +58,153 @@ POST api/v1/users/register
 ```
 The request body need to be in JSON format.
 
+# API Reference
+## User Login
 
+```http
+POST api/v1/users/login
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | no       |
+| `email` | `string` | Your email        | yes       |
+|`password`| `string`| Your password     | yes       |
+
+
+# User
+
+## User pofile
+
+```http
+GET api/v1/users/profile/
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+## Get all users
+```http
+GET api/v1/users/
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | no       |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+## Get profile views
+```http
+GET api/v1/users//profile-viewers/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+## Update users details
+```http
+PUT api/v1/users/update-user/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | yes       |
+|`password`| `string`| Your password     | no        |
+
+## Update user password
+```http
+PUT api/v1/users/update-password
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | yes       |
+
+## Update user profile picture
+```http
+PUT api/v1/users/profile-photo-upload
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | no       |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+|`image` | `file` | Your profile photo   | yes       |
+
+## User following
+```http
+PUT api/v1/users/following/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+
+## User unfollowing
+```http
+PUT api/v1/users/unfollowing/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+## User blocking
+```http
+PUT api/v1/users//block/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+## User unblocking
+```http
+PUT api/v1/users/unblock/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+## User delete account
+```http
+DELETE api/v1/users/delete-account/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+## Admin block account
+```http
+PUT api/v1/users/admin-block/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
+
+## Admin unblock account
+```http
+PUT api/v1/users/admin-unblock/:id
+```
+| Parameter | Type | Description         | Required  |
+| :---------| :----| :----------------   | :---------|
+|`authentication` | `string` | Your token | yes      |
+| `email` | `string` | Your email        | no        |
+|`password`| `string`| Your password     | no        |
 
 
 
