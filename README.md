@@ -24,9 +24,9 @@ __Server:__ Node, Express, MongoDB, Mongoose, JWT
 - Account deletation
 
 # ENDPOINTS
-- .[API Authentication].(#API Authentication)
-   - .[Register a new API client].(#Register a new API client)
-   - .[Login].(https://www.github.com/octokatherine)
+- [API Authentication](#API-Authentication)
+   - [Register a new API client](#Register-a-new-API-client)
+   - [Login](https://www.github.com/octokatherine)
 - [Users](https://www.github.com/octokatherine)
    - [Get my profile](https://www.github.com/octokatherine)
    - [Get all users](https://www.github.com/octokatherine)
