@@ -52,12 +52,12 @@ __Server:__ Node, Express, MongoDB, Mongoose, JWT
    - [Delete a post](#Delete-a-post)
    - [Update a post](#Update-a-post)
  
-  - [Comments](#Comments)
+- [Comments](#Comments)
    - [Create a comment](#Create-a-comment)
    - [Delete a comment](#Delete-a-comment)
    - [Update a comment](#Update-a-comment)
  
-   [Categories](#Categories)
+- [Categories](#Categories)
    - [Create a category](#Create-a-category)
    - [Fetch all categories](#Fetch-all-categories)
    - [Fetch a category](#Fetch-a-cayegory)
