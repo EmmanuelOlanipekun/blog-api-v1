@@ -27,7 +27,7 @@ __Server:__ Node, Express, MongoDB, Mongoose, JWT
 - [API Authentication](#API-Authentication)
    - [Register a new API client](#Register-a-new-API-client)
    - [Login](#User-Login)
-- [Users](#User)
+- [Users](#Users)
    - [Get my profile](#User-Profile)
    - [Get all users](#Get-all-users)
    - [Get profile views](#Get-profile-views)
@@ -41,6 +41,18 @@ __Server:__ Node, Express, MongoDB, Mongoose, JWT
    - [User delete account](#User-delete-account)
    - [Admin block account](#Admin-block-account)
    - [Admin unblock account](#Admin-unblock-account)
+
+- [Posts](#Posts)
+   - [Create post](#Create-post)
+   - [Fetch all posts](#Fetch-all-posts)
+   - [Fetch a post](#Fetch-a-post)
+   - [Like a post](#Like-a-post)
+   - [Dislike a post](#Dislike-a-post)
+   - [Post views](#Post-views)
+   - [Delete a post](#Delete-a-post)
+   - [Update a post](#Update-a-post)
+  
+   
 
 
 # API Authentication
@@ -71,7 +83,7 @@ POST api/v1/users/login
 |`password`| `string`| Your password     | yes       |
 
 
-# User
+# Users
 
 ## User profile
 
@@ -81,8 +93,7 @@ GET api/v1/users/profile/
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
+
 
 ## Get all users
 ```http
@@ -101,8 +112,7 @@ GET api/v1/users/profile-viewers/:id
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
+| `id`    | `string` | Your id           | yes       |
 
 ## Update user details
 ```http
@@ -112,7 +122,6 @@ PUT api/v1/users/update-user/:id
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
 | `email` | `string` | Your email        | yes       |
-|`password`| `string`| Your password     | no        |
 
 ## Update user password
 ```http
@@ -121,7 +130,6 @@ PUT api/v1/users/update-password
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
 |`password`| `string`| Your password     | yes       |
 
 ## Update user profile picture
@@ -139,12 +147,10 @@ PUT api/v1/users/profile-photo-upload
 ```http
 PUT api/v1/users/following/:id
 ```
-| Parameter | Type | Description         | Required  |
-| :---------| :----| :----------------   | :---------|
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :--------------------| :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
-
+| `id` | `string` | id of user to follow  | yes       |
 
 ## User unfollowing
 ```http
@@ -153,8 +159,7 @@ PUT api/v1/users/unfollowing/:id
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
+| `id` | `string` | id of user to unfollow | yes     |
 
 ## User blocking
 ```http
@@ -163,8 +168,7 @@ PUT api/v1/users/block/:id
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
+| `id` | `string` | id of user to block  | yes       |
 
 ## User unblocking
 ```http
@@ -173,8 +177,7 @@ PUT api/v1/users/unblock/:id
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
+| `id` | `string` | id of user to unblock  | yes     |
 
 ## User delete account
 ```http
@@ -183,8 +186,7 @@ DELETE api/v1/users/delete-account/:id
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
+| `id` | `string` | Your id              | yes       |
 
 ## Admin block account
 ```http
@@ -193,8 +195,7 @@ PUT api/v1/users/admin-block/:id
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
+| `id` | `string` | id to be blocked by admin | yes       |
 
 ## Admin unblock account
 ```http
@@ -203,11 +204,79 @@ PUT api/v1/users/admin-unblock/:id
 | Parameter | Type | Description         | Required  |
 | :---------| :----| :----------------   | :---------|
 |`authentication` | `string` | Your token | yes      |
-| `email` | `string` | Your email        | no        |
-|`password`| `string`| Your password     | no        |
+| `id` | `string` | id to be unblocked by admin  | yes      |
 
+# Posts
 
+## Create post
+```http
+POST api/v1/posts/create-post
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+| `title` | `string` | Post title         | yes       |
+|`description`| `string`| Post description | yes      |
+|`category` | `_id` | Post Category       | yes       |
 
+## Fetch all posts
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+
+## Fetch a post
+```http
+GET api/v1/posts/fetch-post/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+| `id` | `string` | Post id               | yes       |
+
+## Like a post
+```http
+GET api/v1/posts/like-post/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+| `id` | `string` | Post id               | yes       |
+
+## Dislike a post
+```http
+GET api/v1/posts/dislike-post/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+| `id` | `string` | Post id               | yes       |
+
+## Post views
+```http
+GET api/v1/posts/post-views/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+| `id` | `string` | Post id               | yes       |
+
+## Delete a post
+```http
+DELETE api/v1/posts/delete-post/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+| `id` | `string` | Post id               | yes       |
+
+## Update a post
+```http
+PUT api/v1/posts/update-post/:id
+```
+| Parameter | Type | Description          | Required  |
+| :---------| :----| :----------------    | :---------|
+|`authentication` | `string` | Your token | yes       |
+| `id` | `string` | Post id               | yes       |
 
 
 
