@@ -1,59 +1,60 @@
-# blog-api-v1 === h1
-##  blog-api-v1 === h2
-###  blog-api-v1 === h3
-####  blog-api-v1 === h4
-#####  blog-api-v1 === h5
-######  blog-api-v1 === h6
+# Blog API Project
 
-# Lists
-- List 1
-   - Nested
-- List 2
-- List 3
+## Tech Stack
 
-  # Links
-  .[youtube link] (www.youtube.com)
+__Server:__ Node, Express, MongoDB, Mongoose, JWT
 
-  # syntax higlighting / code formatting
-  ``` javascript
-   const add = () => {}
-  ```
+# API FEATURES
+- Authentication & Authorization
+- Post CRUD operations
+- Comment functionality
+- System blocking user if inactive for 30 days
+- Admin blocking a user
+- A user blocking different users
+- Last date a post was created
+- Check last day a user was active
+- Changing user award based on number of post
+- User following and unfollowing other users
+- Following and followers count
+- Profile viewers count
+- Post created count
+- Get blocked user count
+- Password update
+- Profile photo upload
+- Account deletation
 
-``` html
-<div>
-<h1> Learn </h1>
+# ENDPOINTS
+- [API Authentication](#API Authentication)
+   - [Register a new API client](#Register a new API client)
+   - [Login](https://www.github.com/octokatherine)
+- [Users](https://www.github.com/octokatherine)
+   - [Get my profile](https://www.github.com/octokatherine)
+   - [Get all users](https://www.github.com/octokatherine)
+   - [Get profile views](https://www.github.com/octokatherine)
+   - [Update user detail](https://www.github.com/octokatherine)
+   - [Update user password](https://www.github.com/octokatherine)
+   - [Update profile picture](https://www.github.com/octokatherine)
+   - [User following](https://www.github.com/octokatherine)
+   - [User unfollowing](https://www.github.com/octokatherine)
+   - [User blocking](https://www.github.com/octokatherine)
+   - [User unblocking](https://www.github.com/octokatherine)
+   - [User delete account](https://www.github.com/octokatherine)
 
-</div>
+
+# API Authentication
+Some endpoints may require authentication. For example, to create/update/delete a post, u need to register your API client and obtain the access token.
+
+The endpoints that require authentication expect a bearer token in the `Authorization Header`.
+
+__Example__:
+
+`Authorizatio: Bearer YOUR TOKEN`
+
+## Register a new API client
+```http
+POST api/v1/users/register
 ```
-
-``` http
-POST /api/users/register
-```
-
-# TABLE
-
-| Parameter | Type | Description |
-| :---------|:-----| :-----------|
-| `auth`    | `string` | token   |
-
-# Text formatting
-
-`formatted`
-__bold__
-
-# Internal linking
-.[go to auth section](#Authentication)
-
-## Authentication
-Our simple editor allows you to quickly add and customize all the sections you need for your project's readmeOur simple editor allows you to quickly add and customize all the sections you need for your project's readmeOur simple editor allows you to quickly add and customize all the sections you need for your project's readme
-
-Our simple editor allows you to quickly add and customize all the sections you need for your project's readmeOur simple editor allows you to quickly add and customize all the sections you need for your project's readmeOur simple editor allows you to quickly add and customize all the sections you need for your project's readme
-
-Our simple editor allows you to quickly add and customize all the sections you need for your project's readmeOur simple editor allows you to quickly add and customize all the sections you need for your project's readmeOur simple editor allows you to quickly add and customize all the sections you need for your project's readme
-
-
-
-
+The request body need to be in JSON format.
 
 
 
