@@ -5,6 +5,7 @@ const commentRouter = require("./routes/comments/commentRoutes.js")
 const categoryRouter = require("./routes/categories/categoryRoutes.js")
 const dotenv = require ("dotenv");
 const globalErrorHandler = require("./middlewares/globalErrorHandler.js");
+const Post = require("./models/Post/Post.js");
 dotenv.config();
 require("./config/dbConnect.js");
 
@@ -14,7 +15,21 @@ const app = express();
 app.use(express.json()); //parse incoming payload
  
 //routes
-//------
+//Home route
+app.get("/", async (req,res) => {
+  try{
+    const posts = await Post.find();
+    res.json({
+      status: "success",
+      data: posts
+    })
+  } catch (error) {
+    res.json(error);
+  }
+});
+
+
+
 //users route
 app.use("/api/v1/users", userRouter);
 
